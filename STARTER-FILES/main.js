@@ -40,13 +40,14 @@ const startTimer = () => {
   startTime = Date.now();
   const secondsValue = parseInt(seconds.value, 10);
   const minutesValue = parseInt(minutes.value, 10);
-  totalSeconds = secondsValue + minutesValue * 60;
+  let totalSeconds = secondsValue + minutesValue * 60;
   timer = setInterval(() => {
     const currentTime = Date.now();
     const diff = currentTime - startTime;
     const secondsLeft = totalSeconds - Math.floor(diff/1000);
-    const minutesLeft = Math.floor(secondsLeft/60);
-    seconds.value = padNumber(secondsLeft);
+    const minutesLeft = Math.floor(secondsLeft / 60);
+    const displaySeconds = secondsLeft % 60;
+    seconds.value = padNumber(displaySeconds);
     minutes.value = padNumber(minutesLeft);
 
     if(secondsLeft === 0 && minutesLeft === 0){
