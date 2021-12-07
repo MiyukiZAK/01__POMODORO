@@ -38,8 +38,8 @@ const startTimer = () => {
   running = true;
   startButton.innerText = 'Pause';
   startTime = Date.now();
-  const secondsValue = parseInt(seconds.value);
-  const minutesValue = parseInt(minutes.value);
+  const secondsValue = parseInt(seconds.value, 10);
+  const minutesValue = parseInt(minutes.value, 10);
   totalSeconds = secondsValue + minutesValue * 60;
   timer = setInterval(() => {
     const currentTime = Date.now();
@@ -88,8 +88,8 @@ const padNumber = (number) => {
 }
 
 const setOriginalTime = () => {
-  originalMinutes = padNumber(parseInt(minutes.value));
-  originalSeconds = padNumber(parseInt(seconds.value));
+  originalMinutes = padNumber(parseInt(minutes.value,10));
+  originalSeconds = padNumber(parseInt(seconds.value,10));
 }
 
 setOriginalTime();
